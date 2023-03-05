@@ -1,0 +1,21 @@
+hostname {{ name }}
+
+{% for vlan, name in vlans.items() %}
+{% if vlan < 25 %}
+vlan {{ vlan }}
+ name {{ name }}
+{% elif vlan < 100 %}
+vlan {{ vlan }}
+ name NEW{{ vlan }}
+{% else %}
+vlan {{ vlan }}
+{% endif %}
+{% endfor %}
+
+{% if ospf %}
+router ospf 1
+{% for net in ospf %}
+ network {{ net['network'] }} area {{ net['area'] }}
+{# network {{ net.network }} area {{ net.area }} #}
+{% endfor %}
+{% endif %}

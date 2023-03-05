@@ -1,0 +1,7 @@
+hostname {{ name }}
+
+{% include 'ospf.txt'%}
+
+{% include 'bgp.txt'%}
+
+logging {{ log_server}}

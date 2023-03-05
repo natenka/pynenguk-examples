@@ -1,0 +1,5 @@
+Value nh_id (\d+)
+Value nhop ([\d.]+)
+
+Start
+ ^ +${nh_id} +${nhop} -> Record

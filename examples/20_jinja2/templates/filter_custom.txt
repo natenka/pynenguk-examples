@@ -1,0 +1,5 @@
+{% for vlan, name in vlans | dictsort %}
+vlan {{ vlan | add_zero }}
+vlan {{ vlan | add_zero(zeroes=10) }}
+ name {{ name }}
+{% endfor %}

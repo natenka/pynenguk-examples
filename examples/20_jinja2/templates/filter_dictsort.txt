@@ -1,0 +1,4 @@
+{% for intf, vlan in access_vlans | dictsort(by='value') %}
+interface {{ intf }}
+ switchport access vlan {{ vlan }}
+{% endfor %}
