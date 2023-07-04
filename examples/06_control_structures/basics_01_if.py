@@ -1,4 +1,3 @@
-
 # value > 8
 # value >= 4
 # value < 100
@@ -14,3 +13,4 @@ elif value < 10:
     print("value < 10")
 else:
     print("value > 10")
+
