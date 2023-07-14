@@ -1,4 +1,5 @@
-vlan_list = ["1", "2", "trunk", "3", "4", "mode", "5"]
+
+vlan_list = ["1", "2", "trunk", "3", "4", "mode", " 5", 1.5, 100]
 
 vlans_int = []
 for vl in vlan_list:
