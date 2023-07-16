@@ -1,8 +1,10 @@
 # from rich.traceback import install
-# install(show_locals=True)
+# install()
+# install(show_locals=True, extra_lines=5)
 
 
-vlans = ["1", "2", "3", "test", "4", "5", "switchport allowed vlans add", "100", "2000", "switchport mode trunk"]
+vlans = ["1", "2", "3", "test", "4", "5",
+         "100", "2000", "switchport mode trunk"]
 
 
 vlans_list = []
