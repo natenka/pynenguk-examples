@@ -28,18 +28,6 @@ def run_timer_with_live_stdout_update(minutes, message):
     print()
 
 
-def sets_of_pomodoros(podomoros_todo, set_size):
-    for idx in range(0, len(podomoros_todo), set_size):
-        yield podomoros_todo[idx : idx + set_size]
-
-
-def run_pomodoro(pomodoro_num, work_minutes=25):
-    print_green("It's time to work!")
-    print_green(f"Pomodoro {pomodoro_num}")
-    run_timer_with_live_stdout_update(work_minutes, "Work")
-    print_green(next(stats))
-
-
 def take_a_short_break(short_break=5):
     draw_line()
     print_red(f"Short break for {short_break} minutes")
@@ -52,6 +40,18 @@ def take_a_long_break(long_break=30):
     print(f"Long break for {long_break} minutes")
     run_timer_with_live_stdout_update(long_break, "Long break")
     draw_line()
+
+
+def sets_of_pomodoros(podomoros_todo, set_size):
+    for idx in range(0, len(podomoros_todo), set_size):
+        yield podomoros_todo[idx : idx + set_size]
+
+
+def run_pomodoro(pomodoro_num, work_minutes=25):
+    print_green("It's time to work!")
+    print_green(f"Pomodoro {pomodoro_num}")
+    run_timer_with_live_stdout_update(work_minutes, "Work")
+    print_green(next(stats))
 
 
 def run_pomodoro_set(
@@ -84,9 +84,6 @@ def update_session_stats(session_stats):
 @click.option("--set_size", "-p", default=4, show_default=True)
 def cli(pomodoros_to_run, work_minutes, short_break, long_break, set_size):
     session_stats = {"total": pomodoros_to_run, "done": 0, "todo": pomodoros_to_run}
-    global stats
-    stats = update_session_stats(session_stats)
-
     click.clear()
     all_pomodoros = list(range(1, pomodoros_to_run + 1))
     pomodoro_sets = sets_of_pomodoros(all_pomodoros, set_size)

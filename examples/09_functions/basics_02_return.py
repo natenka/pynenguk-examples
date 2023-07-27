@@ -1,24 +1,20 @@
 from pprint import pprint
 
 
-
-def clean_cfg(cfg_filename):
-    """
-    Функция читает файл с конфигурацией cfg_filename, удаляет из него строки с !
-    и возвращает список строк
-    """
+def read_cfg_to_list(filename):
     result = []
-    with open(cfg_filename) as f:
+    with open(filename) as f:
         for line in f:
             if not line.startswith("!"):
                 result.append(line.strip())
+
     return result
 
 
-file1 = "configs/cfg1.txt"
-line_list = clean_cfg(file1)
-pprint(line_list)
+cfg1 = "configs/cfg1.txt"
+lines = read_cfg_to_list(cfg1)
+print(lines)
 
-file2 = "configs/cfg2.txt"
-line_list2 = clean_cfg(file2)
-pprint(line_list2)
+cfg2 = "configs/cfg2.txt"
+lines = read_cfg_to_list(cfg2)
+print(lines)
