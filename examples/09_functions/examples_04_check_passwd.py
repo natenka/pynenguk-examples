@@ -1,19 +1,17 @@
 
-def password_check(user, passwd, min_len=8, spec_symbols=2):
-    spec_symbols_str = "$#@%_+"
-    if len(passwd) < min_len:
-        return False
-    elif user.lower() in passwd.lower():
-        return False
-    elif len(set(spec_symbols_str) & set(passwd)) < 2:
-        return False
-    else:
-        return True
+def password_check(username, password, min_len=8, min_spec_symbols=2):
+	spec_symbols = set("$#%@_=%")
+	if len(password) < min_len:
+		return False
+	elif username.lower() in password.lower():
+		return False
+	elif len(set(password) & spec_symbols) < min_spec_symbols:
+		return False
+	else:
+		return True
 
 
-username = "user1"
-password = "1234567677"
-
-print(password_check(username, password, min_len=15))
+print(password_check("user1", "password", min_len=15))
 print(password_check("user1", "passwo#rd+"))
 print(password_check("user1", "passuse$r1w_ord"))
+
