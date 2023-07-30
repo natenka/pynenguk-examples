@@ -16,21 +16,35 @@ from pprint import pprint
         "ip rsvp bandwidth",
     ],
 }
-
-result = {}
-
 src_file = "configs/config_r1.txt"
-with open(src_file) as f:
+
+intf_section_dict = {}
+with open(src_file) as src:
     intf_section = False
-    for line in f:
+    for line in src:
         if line.startswith("interface"):
             intf = line.split()[-1]
             intf_section = True
-            result[intf] = []
+            intf_cmd_list = []
+            intf_section_dict[intf] = intf_cmd_list
         elif line.startswith(" "):
             if intf_section:
-                result[intf].append(line.strip())
+                intf_cmd_list.append(line.strip())
+
         else:
             intf_section = False
+pprint(intf_section_dict)
 
-pprint(result)
+#intf_section_dict = {}
+#with open(src_file) as src:
+#    intf_section = False
+#    for line in src:
+#        if line.startswith("interface"):
+#            intf = line.split()[-1]
+#            intf_section = True
+#            intf_section_dict[intf] = []
+#        elif line.startswith(" "):
+#            if intf_section:
+#                intf_section_dict[intf].append(line)
+#        else:
+#            intf_section = False

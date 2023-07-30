@@ -1,7 +1,7 @@
 from pprint import pprint
 
 src_file = "configs/config_r1.txt"
-dst_file = "result_1.txt"
+dst_file = "result_r1_intf.txt"
 
 with open(src_file) as src, open(dst_file, "w") as dst:
     write_line = False
