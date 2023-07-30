@@ -24,9 +24,10 @@ with open(src_file) as src:
     for line in src:
         if line.startswith(" "):
             if section.startswith("interface"):
-                if section not in intf_section_dict:
-                    intf_section_dict[section] = []
-                intf_section_dict[section].append(line)
+                intf = section.split()[-1]
+                if intf not in intf_section_dict:
+                    intf_section_dict[intf] = []
+                intf_section_dict[intf].append(line.strip())
         else:
             section = line
 
