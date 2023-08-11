@@ -9,7 +9,6 @@ for vl in items:
 
 pprint(vlans)
 
-# list comp
 
 vlans = [int(vl) for vl in items if vl.isdigit()]
 pprint(vlans)
