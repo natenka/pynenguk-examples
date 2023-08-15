@@ -10,38 +10,14 @@ r1 = {
 }
 
 
+nums_dict = {num: num * 10 for num in range(1, 6)}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{num: num * 10 for num in range(1, 6)}
-
-# items = {}
+# nums_dict = {}
 # for num in range(1, 6):
-#     items[num] = num * 10
+#     nums_dict[num] = num * 10
+
+r1_new = {key.lower(): value for key, value in r1.items()}
+
+# r1_new = {}
+# for key, value in r1.items():
+# 	r1_new[key.lower()] = value
