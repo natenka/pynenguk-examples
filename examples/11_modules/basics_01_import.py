@@ -1,5 +1,5 @@
 """
-В этом модуле...
+Docstring...
 """
 from pprint import pprint
 from sys import version, argv
@@ -9,12 +9,15 @@ x = 10
 vlans = [1, 2, 3]
 
 
-def my_sum(a, b):
-    return a + b
+def sum_numbers(num1, num2):
+    return num1 + num2
+
+# res1 = sum_numbers(100, 200)
+# print(f"{num1=} {num2=}")
 
 
 if __name__ == "__main__":
-    result = my_sum(1, 2)
+    result = sum_numbers(1, 2)
 
     print("start".center(50, "="))
     print(version)
